@@ -11,6 +11,7 @@ const Room = () => {
     dispatch(fetchRoom());
   }, [dispatch]);
   const roomData = useSelector((state) => state.room.data);
+  const userData = useSelector((state) => state.user.data);
   const [error, setError] = useState(null);
   const headers = {
     'Content-Type': 'application/json',
@@ -33,7 +34,7 @@ const Room = () => {
 
   return (
     <div className="container">
-      <Navigate />
+      <Navigate userRole={userData && userData.role} />
       { error && error}
       <div className="home">
         <div className="header-div">

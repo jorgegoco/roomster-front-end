@@ -16,6 +16,7 @@ const RoomDetails = () => {
   }, [dispatch]);
   const roomId = parseInt(id, 10);
   const roomData = useSelector((state) => state.room.data);
+  const userData = useSelector((state) => state.user.data);
   const roomDetail = (roomData.filter((room) => room.id === roomId))[0];
 
   const handleReserveClick = () => {
@@ -24,7 +25,7 @@ const RoomDetails = () => {
 
   return (
     <div className="container">
-      <Navigate />
+      <Navigate userRole={userData && userData.role} />
       <div className="container room-detail-container d-flex mt-3">
         <div className="container rd-img-box">
           <img src={roomDetail.photo} alt="room" />
