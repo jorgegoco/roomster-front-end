@@ -42,10 +42,10 @@ const Room = () => {
     <div className="container">
       <Navigate />
       <div className="home">
+        {greeting && <p className="greeting">{greeting}</p>}
         <div className="header-div">
           <h1>Rooms</h1>
           <p>Please Select a room below</p>
-          {greeting && <p>{greeting}</p>}
         </div>
         <div className="rooms row" style={{ marginTop: '40px' }}>
           {roomData.map((room) => (
