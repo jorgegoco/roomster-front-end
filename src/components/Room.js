@@ -40,7 +40,7 @@ const Room = () => {
 
   return (
     <div className="container">
-      <Navigate />
+      <Navigate userRole={userData && userData.role} />
       <div className="home">
         {greeting && <p className="greeting">{greeting}</p>}
         <div className="header-div">
