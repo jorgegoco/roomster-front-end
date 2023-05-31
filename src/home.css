@@ -101,6 +101,14 @@
   color: black;
 }
 
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* number of lines to be displayed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .arr {
   width: 0;
   height: 0;

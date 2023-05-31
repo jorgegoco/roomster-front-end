@@ -53,7 +53,7 @@ const Room = () => {
 
               <div className="card">
                 <Link to={`/rooms/${room.id}`}>
-                  <img className="card-img-top" src={room.photo} alt="Room Pic" />
+                  <img className="card-img-top" src={room.photo} alt="Room Pic" style={{ height: '200px', width: '100%' }} />
                   <div className="card-body">
                     <h5 className="card-title">{room.name}</h5>
                     <p className="card-text">{room.description}</p>
