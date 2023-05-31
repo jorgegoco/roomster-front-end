@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable consistent-return */
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import fetchRoom from '../redux/room/fetchRoom';
@@ -37,12 +38,28 @@ const Room = () => {
   const userData = useSelector((state) => state.user.data);
   const currentTimeOfDay = getCurrentTimeOfDay();
   const greeting = userData ? getGreeting(userData.name, currentTimeOfDay) : '';
+  const [showGreeting, setShowGreeting] = useState(false);
+
+  useEffect(() => {
+    if (greeting) {
+      setShowGreeting(true);
+    }
+  }, [greeting]);
+
+  useEffect(() => {
+    if (showGreeting) {
+      const timer = setTimeout(() => {
+        setShowGreeting(false);
+      }, 5000);
+      return () => clearTimeout(timer); // Return timer ID for cleanup
+    }
+  }, [showGreeting]);
 
   return (
     <div className="container">
       <Navigate userRole={userData && userData.role} />
       <div className="home">
-        {greeting && <p className="greeting">{greeting}</p>}
+        {showGreeting && <p className="greeting slide-in">{greeting}</p>}
         <div className="header-div">
           <h1>Rooms</h1>
           <p>Please Select a room below</p>
@@ -53,7 +70,7 @@ const Room = () => {
 
               <div className="card">
                 <Link to={`/rooms/${room.id}`}>
-                  <img className="card-img-top" src={room.photo} alt="Room Pic" style={{ height: '200px', width: '100%' }} />
+                  <img className="card-img-top" src={room.photo} alt="Room Pic" style={{ height: '200px', width: '100%', borderRadius: '4%' }} />
                   <div className="card-body">
                     <h5 className="card-title">{room.name}</h5>
                     <p className="card-text">{room.description}</p>

@@ -10,22 +10,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.greeting {
-  color: #97bf0e;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  transform: translateX(100%);
-  animation: slideInFromRight 2s ease-in-out forwards;
-}
 
-@keyframes slideInFromRight {
-  to {
-    transform: translateX(0);
-  }
-}
 
 .entry-page-components {
   max-width: 100%;
@@ -40,6 +25,26 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}.greeting {
+  color: #97bf0e;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateX(100%);
+}
+
+/* Add animation effect */
+.greeting.slide-in {
+  animation: slideInFromRight 2s ease-in-out forwards;
+}
+
+/* Define keyframes for animation */
+@keyframes slideInFromRight {
+  to {
+    transform: translateX(0);
+  }
 }
 
 .nav-bar {
