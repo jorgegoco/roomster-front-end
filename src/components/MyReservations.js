@@ -9,9 +9,10 @@ const MyReservations = () => {
   const dispatch = useDispatch();
   useEffect(() => { dispatch(fetchReservations()); }, [dispatch]);
   const reservationsData = useSelector((state) => state.reservations.data);
+  const userData = useSelector((state) => state.user.data);
   return (
     <div className="container">
-      <Navigate />
+      <Navigate userRole={userData && userData.role} />
       <h1 className="reservation-heading">My Reservations</h1>
       <div className="rooms row" style={{ marginTop: '40px' }}>
         {reservationsData.map((reservation) => (

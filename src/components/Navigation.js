@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../home.css';
 import logo from '../image/logo-removebg-preview.png';
 
-function Navigate() {
+const Navigate = ({ userRole }) => {
   const [isActive, setIsActive] = useState(false);
   function openNav() {
     setIsActive(true);
@@ -38,12 +39,16 @@ function Navigate() {
             <li>
               <button type="button" className="closebtn" onClick={closeNav}>&times;</button>
             </li>
-            <li>
-              <Link to="../add_room">Add Room</Link>
-            </li>
-            <li>
-              <Link to="../delete">Delete Room</Link>
-            </li>
+            {userRole === 'admin' && (
+              <>
+                <li>
+                  <Link to="../add_room">Add Room</Link>
+                </li>
+                <li>
+                  <Link to="../delete">Delete Room</Link>
+                </li>
+              </>
+            )}
             <li>
               <Link to="../reservations">Reservations</Link>
             </li>
@@ -60,6 +65,10 @@ function Navigate() {
       </div>
     </>
   );
-}
+};
+
+Navigate.propTypes = {
+  userRole: PropTypes.string.isRequired,
+};
 
 export default Navigate;

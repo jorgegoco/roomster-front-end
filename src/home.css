@@ -93,12 +93,19 @@
 .card {
   margin-bottom: 30px;
   border: none !important;
-  border-radius: 50%;
 }
 
 .card a {
   text-decoration: none;
   color: black;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* number of lines to be displayed */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .arr {
