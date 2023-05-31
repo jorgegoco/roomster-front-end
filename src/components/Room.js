@@ -6,6 +6,27 @@ import fetchUser from '../redux/user/fetchUser';
 
 import Navigate from './Navigation';
 
+const getCurrentTimeOfDay = () => {
+  const hours = new Date().getHours();
+  if (hours >= 5 && hours < 12) {
+    return 'morning';
+  }
+  if (hours >= 12 && hours < 17) {
+    return 'afternoon';
+  }
+  return 'evening';
+};
+
+const getGreeting = (name, timeOfDay) => {
+  if (timeOfDay === 'morning') {
+    return `Good morning, ${name}!`;
+  }
+  if (timeOfDay === 'afternoon') {
+    return `Good afternoon, ${name}!`;
+  }
+  return `Good evening, ${name}!`;
+};
+
 const Room = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -14,6 +35,8 @@ const Room = () => {
   }, [dispatch]);
   const roomData = useSelector((state) => state.room.data);
   const userData = useSelector((state) => state.user.data);
+  const currentTimeOfDay = getCurrentTimeOfDay();
+  const greeting = userData ? getGreeting(userData.name, currentTimeOfDay) : '';
 
   return (
     <div className="container">
@@ -22,7 +45,7 @@ const Room = () => {
         <div className="header-div">
           <h1>Rooms</h1>
           <p>Please Select a room below</p>
-          <div className="user-info">{userData.name}</div>
+          {greeting && <p>{greeting}</p>}
         </div>
         <div className="rooms row" style={{ marginTop: '40px' }}>
           {roomData.map((room) => (
