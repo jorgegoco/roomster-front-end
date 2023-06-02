@@ -65,14 +65,14 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Rooms Display page]**
-- **[Room reservation service]**
-- **[Login and Registration using API endpoint]**
+- **Rooms Display page**
+- **Room reservation service**
+- **Login and Registration using API endpoint**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ruby-on-rails-icon.png" width="23" height="20"/> Rails Backend <a name="rails-backend"></a>
-- Here is the Backend part of the project [room-appointment-backend](https://github.com/Ibnballo1/book_appointment_backend.git)
+- Here is the Backend part of the project [room-appointment-backend](https://github.com/jorgegoco/roomster-back-end)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,8 +157,8 @@ Run tests
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Admin Panel and access to add new rooms]**
-- [ ] **[Make a 3D display of each room on Details Page that can be rotated]**
+- [ ] **Admin Panel and access to add new rooms**
+- [ ] **Make a 3D display of each room on Details Page that can be rotated**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -166,7 +166,7 @@ Run tests
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/jorgegoco/roomster-front-end/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
